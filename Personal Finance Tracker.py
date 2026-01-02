@@ -192,7 +192,7 @@ if st.button("Submit Transaction"):
                 "Classification": classification,
                 "Specific Category": specific_category,
                 "Subcategory": subcategory,
-                "Description": "Transaction Fee)",
+                "Description": "Transaction Fee",
                 "Source Wallet": source_wallet,
                 "End Wallet": None
             })
