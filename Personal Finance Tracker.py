@@ -115,14 +115,16 @@ if classification:
 
     specific_category = st.selectbox(
         "Specific Category",
-        filtered_categories["Specific Category"].unique()
+        filtered_categories["Specific Category"].unique(),
+        key="specific_category"
     )
 
     subcategory = st.selectbox(
         "Sub-category",
         filtered_categories[
             filtered_categories["Specific Category"] == specific_category
-        ]["Subcategory"].unique()
+        ]["Subcategory"].unique(),
+        key="subcategory"
     )
 else:
     st.info("Select a classification to see categories")
@@ -188,7 +190,7 @@ if st.button("Submit Transaction"):
         if with_fee and fee_amount > 0:
             transactions_to_post.append({
                 "Date": date.isoformat(),
-                "Amount": fee_amount,
+                "Amount": -abs(fee_amount),
                 "Classification": classification,
                 "Specific Category": specific_category,
                 "Subcategory": subcategory,
